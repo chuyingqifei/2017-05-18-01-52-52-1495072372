@@ -61,9 +61,8 @@ class Sequence {
 	if(len <= 0){
 		return;
 	}
-	var aver;
 	var sum = 0;
-	for(var x = 1;x < len;x++){
+	for(var x = 0;x < len;x++){
 		sum += this.input[x];
 	}
 	return (sum / len).toFixed(2);
