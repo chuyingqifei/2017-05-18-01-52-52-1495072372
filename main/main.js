@@ -1,10 +1,9 @@
 module.exports = function main() {
     let sequence = new Sequence([6, 9, 15, -2, 92, 11]);
     console.log(`o) 最小值 = ${sequence.minimum()}
-	o) 最大值 = ${sequence.maximum()}
-	o) 元素数量 = ${sequence.size()}
-	o) 平均值 = ${sequence.average()}
-	`);
+o) 最大值 = ${sequence.maximum()}
+o) 元素数量 = ${sequence.size()}
+o) 平均值 = ${sequence.average()}`);
 };
 
 
@@ -22,24 +21,51 @@ o) 平均值 = 21.83`);
 class Sequence {
   constructor(input) {
     // Write your code here
+	this.input = input;
   }
 
   minimum() {
     // Write your code here
-	return -2;
+	var len = this.input.length;
+	if(len <= 0){
+		return;
+	}
+	var min = this.input[0];
+	for(var x = 1;x < len;x++){
+		if(min > this.input[x]){
+			min = this.input[x];
+		}
+	}
+	return min;
   }
   maximum(){
-	  return 92;
-  
+	var len = this.input.length;
+	if(len <= 0){
+		return;
+	}
+	var max = this.input[0];
+	for(var x = 1;x < len;x++){
+		if(max < this.input[x]){
+			max = this.input[x];
+		}
+	}
+	return max;
   }
   
   size(){
-	  return 6;
+	  return this.input.length;
   }
   
   average(){
-	  return 21.83;
+	var len = this.input.length;
+	if(len <= 0){
+		return;
+	}
+	var aver;
+	var sum = 0;
+	for(var x = 1;x < len;x++){
+		sum += this.input[x];
+	}
+	return (sum / len).toFixed(2);
   }
-
-  // Write your code here
 }
